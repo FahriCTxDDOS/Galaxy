@@ -6,6 +6,8 @@ import re
 import urllib.request
 import os
 import sys
+import time
+
 os.system("clear")
 os.system("figlet LOGIN | lolcat -a -d 10")
 yf = str(input("Nama Kamu ( bebas ) : ")) 
@@ -68,9 +70,6 @@ if mn == "IN" :
 	print(ipf)
 	bc = input(" Tekan Enter Untuk Kembali")
 	retun()
-	
-
-           
 
 
 
@@ -513,7 +512,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 	global choice1
 	global ips
 
-	choice1 = input("\n Metod 1/2 :  > ")
+	choice1 = input("\n Target? [0] atau[1] > ")
 
 	if choice1 == "1":
 		ip_file = input("Masukkan file txt dari ips > ")
@@ -522,7 +521,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 
 	else:
-		url = input("\nTarget: ").strip()
+		url = input("\nMasukan URL/IP: ").strip()
 
 		if url == "":
 			print ("Silakan masukkan urlnya.")
@@ -554,7 +553,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 def proxymode():
 	global choice2
-	choice2 = input("Ingin menggunakan bantuan stasiun lain? ketik y jika iya: ")
+	choice2 = input("Ingin menggunakan proxy/socks mode? ketik 'y' untuk aktifkan: ")
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
@@ -562,17 +561,17 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = input("Ketik 'B' Untuk Menembak Dari Stasiun B  Dan Ketik S Untuk Menembak Dari Stasiun S: ")
-	if choice3 == "B":
+	choice3 = input("Ketik '0' untuk aktifkan proxymode atau Ketik '1' Untuk mengaktifkan socksmode: ")
+	if choice3 == "0":
 		choicedownproxy()
-	elif choice3 == "S":
+	elif choice3 == "1":
 		choicedownsocks()
 	else:
 		print ("Anda salah ketik, coba lagi.")
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = input("Apakah Anda ingin Memperbarui  StasiunB? ketik 'y' untuk iya: ")
+	choice4 = input("Apakah Anda ingin mengunduh list baru / proxy? ketik 'y' untuk iya: ")
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -580,7 +579,7 @@ def choicedownproxy():
 		proxylist()
 
 def choicedownsocks():
-	choice4 = input("Apakah Anda ingin memperbarui StasiunS? ketik 'y' untuk iya': ")
+	choice4 = input("Apakah Anda ingin mengunduh list baru / proxy? ketik 'y' untuk iya': ")
 	if choice4 == "y":
 		urlproxy = "https://www.socks-proxy.net/"
 		proxyget(urlproxy)
@@ -623,7 +622,7 @@ def proxylist():
 def numthreads():
 	global threads
 	try:
-		threads = int(input("Masukan Jumlah Peluru :  "))
+		threads = int(input("Therds nya mau brp? (800): "))
 	except ValueError:
 		threads = 800
 		print ("800 threads selected.\n")
@@ -632,23 +631,13 @@ def numthreads():
 def multiplication():
 	global multiple
 	try:
-		multiple = int(input("Kekuatan Serangan : "))
+		multiple = int(input("Kekuatan Serangan [(1-5=normal)(50=kuat)(100 atau lebih=bom)]: "))
 	except ValueError:
 		print("Anda salah ketik, coba lagi.\n")
 		multiplication()
 	begin()
 
 def begin():
-	print("Loading")
-	time.sleep(2)
-	print("10%")
-	time.sleep(3)
-	print("40%")
-	time.sleep(1)
-	print("90%")
-	time.sleep(3)
-	print("100%")
-	time.sleep(1)
 	choice6 = input("Press 'Enter' to start attack: ")
 	if choice6 == "":
 		loop()
