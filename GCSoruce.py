@@ -9,7 +9,7 @@ import sys
 import time
 
 os.system("clear")
-os.system("figlet LOGIN | lolcat -a -d 10")
+os.system("figlet LOGIN")
 yf = str(input("Nama Kamu ( bebas ) : ")) 
 ipf = str(input("Fake Ip (45.67.231) : "))
 if ipf == "":
